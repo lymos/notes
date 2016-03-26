@@ -7,4 +7,16 @@
 3、查数据已逗号分隔
 	select group_concat(id) from table;  # result like 001,002,003
 
+4. mysql 执行sql脚本:
+	mysql -uroot -p your database < script.sql
+	或mysql> source script.sql
+
+5. mysql 导入导出:
+	导入: mysqldump -uroot -p your database < script.sql
+	导出: mysqldump -uroot -p your database > script.sql
+
+6. select into table2 from table1 与 insert into select table2 from table1 区别:
+	前者table2必须不存在，不然会报错
+ 
+
 
