@@ -17,3 +17,7 @@
 
 6、实现自增
 	identity(1, 1) 从1开始自增1
+
+7、获取最后插入的ID
+ 	insert into table (field) values (value) select last_insert_id=@@identity; 
+ 	

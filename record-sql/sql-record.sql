@@ -18,5 +18,6 @@
 6. select into table2 from table1 与 insert into select table2 from table1 区别:
 	前者table2必须不存在，不然会报错
  
-
+7. 查出数据库中所有表：
+	select table_name from information_scheam.table where table_scheam = "数据库名"
 
