@@ -17,3 +17,16 @@
 			......
 		</Directory>
 	</VirtualHost>
+
+2、apache httpd 关闭服务器信息
+	conf中 ServerToken Prod 
+		   ServerSignature Off
+
+2、Require local 只允许本地访问
+   Require all denied 禁止所有访问
+   Require all granted 允许所有访问
+   Require ip 127.0.0.1 允许IP
+   Require not 127.0.0.1 不允许IP
+
+ 
+		   

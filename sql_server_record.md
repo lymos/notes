@@ -21,3 +21,5 @@
 7、获取最后插入的ID
  	insert into table (field) values (value) select last_insert_id=@@identity; 
  	
+8、建立索引：
+	create index index_name on table_name (field_name);
