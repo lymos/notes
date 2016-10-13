@@ -23,3 +23,10 @@
  	
 8、建立索引：
 	create index index_name on table_name (field_name);
+
+9、字段加备注:
+	EXECUTE sp_addextendedproperty N'MS_Description', N'备注', N'user', N'dbo', N'table', N'表名', N'column', N'字段名';
+
+10、表备注：
+	EXECUTE sp_addextendedproperty N'MS_Description', N'备注', N'user', N'dbo', N'table', N'表名', NULL, NULL;
+

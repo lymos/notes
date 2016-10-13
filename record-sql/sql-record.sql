@@ -21,3 +21,5 @@
 7. 查出数据库中所有表：
 	select table_name from information_scheam.table where table_scheam = "数据库名"
 
+8. mysql sql_mode参数:
+	show variable like "sql_mode%" ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
