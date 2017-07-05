@@ -17,3 +17,7 @@
 
 2、my.cnf中配置 skip-new 使optimize innodb 优化表生效
 
+3、查询优化相关
+  1、find_in_set 比 in快
+  2、like两边%没有使用索引，一边则使用到索引
+  3、有时候连表中并没有取的字段，但where有用到时，可以控制是否要连此表(尽量减少连表)

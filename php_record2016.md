@@ -46,5 +46,19 @@
     如果是操作数据库，可以在update时，控制好where ，使用事务操作等；
     数据库乐观锁，大致的意思是先查询库存，然后立马将库存+1，然后订单生成后，在更新库存前再查询一次库存，看看跟预期的库存数量是否保持一致，不一致就回滚，提示用户库存不足。
 
+6、脚本同步：
+    软件: rsync 
+    rsyncd.conf rsyncd.secrets rsyncd.motd 3个配置文件
+    rsyncd.conf部分:
+        pid file = /var/run/rsyncd.pid
+        post = 873
+        uid = root
+        gid = root
+        [first] # 资源名
+        path = /usr/local/nginx/html/sdcticrm-bak # 同步的目录
+        exclude = /usr/local/nginx/html/sdcticrm-bak/application/config # 忽略的目录
+
+    启动服务：rsync --deamon --config rsycd.conf
+    同步命令：rsync -avzP root@192.168.142.135::repo(资源名) repo(同步后的目录)
 
 
