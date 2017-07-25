@@ -30,3 +30,5 @@
 10、表备注：
 	EXECUTE sp_addextendedproperty N'MS_Description', N'备注', N'user', N'dbo', N'table', N'表名', NULL, NULL;
 
+11、判断表是否存在：
+	IF  EXISTS (select * from sysobjects where id = object_id(N'[table_name]') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table table_name;
