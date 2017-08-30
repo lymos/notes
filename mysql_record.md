@@ -14,6 +14,7 @@
 
 		change master to  master_host='192.168.1.112', master_user='slave', master_password='123456', master_log_file='mysql-test-bin.000022', master_log_pos=106;
 		start slave
+		重置 reset slave
 
 2、my.cnf中配置 skip-new 使optimize innodb 优化表生效
 
@@ -24,3 +25,11 @@
   4、多表联合，同时有gourp by order by，他们的字段相同会用比较快
   5、union 比 or 快
   6、
+
+4、数据库迁移直接复制data/ 下文件夹，ibdata1文件也复制即可
+
+5、修复innodb my.cnf加参数 innodb_force_recovery = n(0-6)
+
+6、slave跳过错误 my.cnf加 slave_skip_errors = 1062(错误代号)
+
+
