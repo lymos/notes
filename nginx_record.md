@@ -64,3 +64,17 @@ https://YOUR_DOMAINNAME_HERE
     CLOSING  //两边同时尝试关闭
     TIME_WAIT  //另一边已初始化一个释放
     LAST_ACK  //等待所有分组死掉
+
+3、使用代理实现web集群
+    nginx.conf配置：
+    upstream demo.com {
+        server server1.com weight=2; // 分配权重 宕机后不分配
+        server server2.com weight=2;
+        ...
+        ...
+    }
+
+    location / {
+        proxy_pass demo.com;
+        proxy_redirect default;
+    }
