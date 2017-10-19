@@ -32,3 +32,20 @@
 
 11、判断表是否存在：
 	IF  EXISTS (select * from sysobjects where id = object_id(N'[table_name]') and OBJECTPROPERTY(id, N'IsUserTable') = 1) drop table table_name;
+
+12、建立group_contcat函数，返回逗号分隔
+	create function dbo.group_concat_vgo_product(
+		@gohome_id varchar(50)
+	) 
+	returns varchar(50)
+	as BEGIN
+		declare @r varchar(50)
+		select @r = isnull(@r, '') + a.productline_id + ','
+		from w_gohome_product as a 
+		where a.gohome_id = @gohome_id
+		return left(@r, len(@r) - 1)
+	end
+
+
+
+

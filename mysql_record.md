@@ -11,6 +11,7 @@
 		my.cnf:
 			server-id = 2
 			replicate-do-db=test   # 要同步的数据库
+			replicate-do-db=test2  # 要同步的第二个数据库
 
 		change master to  master_host='192.168.1.112', master_user='slave', master_password='123456', master_log_file='mysql-test-bin.000022', master_log_pos=106;
 		start slave
