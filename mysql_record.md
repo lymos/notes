@@ -33,4 +33,22 @@
 
 6、slave跳过错误 my.cnf加 slave_skip_errors = 1062(错误代号)
 
+7、mariadb cluster集群设定
+	3台修改hosts 101 node1 102 node2 ...
+	安装mariadb-galera数据库3台 IP: 101-103 
+	开端口或者关防火墙
+	安装 galera-3-25.3.21-2.el7.x86_64.rpm 用于服务提供者，见conf文件
+	安装rsync 和 lsof (yum install即可)
+	复制wsrep.conf到etc/my/cnf.d/下：
+		wsrep_on=on (3台一样)
+		wsrep_provider=libgalera_smm.so (galera-3-25.3.21-2.el7.x86_64.rpm安装路径中找) (3台一样)
+		wsrep_cluster_address="gcomm://101,102,103" (3台一样)
+		wsrep_node_address=101
+		wsrep_sst_method=rsync (需要安装rsync)(3台一样)
+
+	启动第1台 mysql.server start --wsrep_new_cluster(其他2台不需要此参数)
+	验证：show status like 'wsrep_%'; 看参数
+	完成
+
+8、
 
