@@ -50,5 +50,9 @@
 	验证：show status like 'wsrep_%'; 看参数
 	完成
 
-8、
+8、解锁只读表
+  	flush tables with read lock;
+  	unlock tables;
+
+9、
 
