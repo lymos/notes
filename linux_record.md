@@ -9,4 +9,13 @@
 3、postfix 发送邮件配置 (php使用mail函数)
 	/etc/postfix/main.cf 中 修改 relayhost=[邮箱服务器ip] 
 	重启postfix即可
-	
+	命令行发送邮件：
+		echo "Subject: my subject" | sendmail -v to@123.com
+		或者 sendmail -vt < mail.txt 
+		mail.txt内容如下：
+			To: to@123.com
+			Subject: my subject
+			From: from@123.com
+
+4、
+
