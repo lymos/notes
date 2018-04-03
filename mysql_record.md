@@ -54,5 +54,12 @@
   	flush tables with read lock;
   	unlock tables;
 
-9、
+9、逗号分隔，改成查询多行
+	select a.issue_id,
+	substring_index(substring_index(a.identify_tag,',',c.help_topic_id+1),',',-1) as t
+	from crm_issue as a
+	join 
+	mysql.help_topic as c 
+	on c.help_topic_id < (length(a.identify_tag) - length(replace(a.identify_tag,',',''))+1) 
+	where a.identify_tag != '' 
 
