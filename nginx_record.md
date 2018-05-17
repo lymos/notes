@@ -67,6 +67,7 @@ https://YOUR_DOMAINNAME_HERE
 
 3、使用代理实现web集群
     nginx.conf配置：
+    http模块下：
     upstream demo.com {
         server server1.com weight=2; // 分配权重 宕机后不分配
         server server2.com weight=2;
@@ -74,7 +75,8 @@ https://YOUR_DOMAINNAME_HERE
         ...
     }
 
+    server模块下：
     location / {
-        proxy_pass demo.com;
+        proxy_pass http://demo.com;
         proxy_redirect default;
     }
